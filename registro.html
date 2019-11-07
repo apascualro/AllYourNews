@@ -6,15 +6,36 @@
 	<title>registro</title>
 </head>
 <body>
-<h1>Esta es la pagina de registro</h1>
-<h2>Usuario</h2>
-<input type="text" name="usuario">
-<h2>Password</h2>
-<input type="password" name="password">
-<h2>Repite Password</h2>
-<input type="password" name="password2">
 
-<button>Registra</button>
+<?php if(isset($_SERVER['submit_register'])){
+        $nomregister = $_POST['usernuevo'];
+        $passregister = $_POST['passnuevo'];
+        $passregister2 = $_POST['pass2nuevo'];
+}?>
+<h1>Esta es la pagina de registro</h1>
+<br>
+<form method="post" action="PHP/registrarse.php">
+        <table cellspacing="20">
+          <tr>
+            <td><p> Nombre: <input type="text" sie="20" name="usernuevo"
+              value="<?php echo isset($_POST["usernuevo"]) ? $_POST["usernuevo"] : ''; ?>"> </p></td>
+          </tr>
+          <tr>
+            <td><p> Contraseña: <input type="password" sie="20" name="passnuevo"
+              value="<?php echo isset($_POST["passnuevo"]) ? $_POST["passnuevo"] : ''; ?>"> </p></td>
+
+          </tr>
+          <tr>
+            <td><p> Confirma la contraseña: <input type="password" sie="20" name="pass2nuevo"
+              value="<?php echo isset($_POST["pass2nuevo"]) ? $_POST["pass2nuevo"] : ''; ?>"> </p></td>
+          </tr>
+          <tr>
+            <td><input type="submit" name="sumbit_register" value="Enviar" >
+            </td>
+          </tr>
+        </table>
+
+      </form>
 <button onclick="window.location.href = 'login.html';">Volver</button>
 
 
